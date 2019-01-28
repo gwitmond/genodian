@@ -1,0 +1,27 @@
+Pills
+
+- On microkernels vs monoliths
+   - Linus-vs-tanenbaum
+   - who use microkernels (Airbus, Intel, 
+
+- On ambient authority (global namespaces)
+   - Posix good for students and professors
+   - xkcd driver protection cartoon
+   
+- POLA
+   - HP POLARIS for WinXP (15 years ago)
+
+- Capability security
+   - KeyKos, Eros/Coyotos
+
+- sandboxing everything
+
+- on resource trading
+  - out-of-memory killer
+
+- separating out parsers
+  - on dogs and bosses
+
+
+- getting started
+- 
