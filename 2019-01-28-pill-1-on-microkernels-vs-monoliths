@@ -6,42 +6,45 @@ Genode] shows a picture of the difference between a monolithic kernel and a
 microkernel.
 
 The difference between them is that in a microkernel each component
-(Disk driver, USB, audio, etc) runs as a separate process. The kernel
-just provides some memory and communications so these components can
-talk to each other. Yet, if one component has a bug and crashes it
-hinders the other components -- imagine you're writing a file and the
-disk driver crashes -- but that's all the damage it could do.
+(Disk driver, USB, audio, etc) runs as a separate process. The (very
+small) kernel just provides some memory and communications so these
+components can talk to each other. Yet, if one component has a bug and
+crashes it certainly hinders the other components -- imagine you're
+writing a file and the disk driver crashes -- but that's all the
+damage it could do.
 
 In a monolith, all pieces are combined in one big process. To further
 speed things up, components can often reach inside other components to
 avoid communication overhead. So if one component has a bug it can
 literally mess up anything. Sometimes it's benign, other times it
-could be fatal. It could crash the system leading to the famous Blue
-Screen of Death (or whatever color your OS chooses)(link to
-pink-color-of-death joke). Even worse, a clever attacker can abuse
-such bugs to obtain root privileges. (link to examples)
+could be fatal. It could crash the system leading to the famous
+[https://en.wikipedia.org/wiki/Blue_Screen_of_Death - Blue Screen of
+Death] (or whatever color your OS chooses) Even worse, a clever
+attacker can abuse such bugs to obtain root privileges. (link to
+examples)
 
 Microkernels alone do not make a computer safe against all things
 bad. In later posts I'll show other security issues and what paradigms
 help solve them. And I'll show that program are adapting to OS'es like
 dogs look like their owners (or the other way around).
 
-Microkernels are not new. About 25 years ago -- exactly XX-YY-ZZZZ --
-there was an email discussion between Linus Torvalds and Andrew
-Tanenbaum. The first is known for Linux, the second, professor of
-computer science in Amsterdam who wrote Minix, a microkernel with a
-UNIX-like approach. In short, at first Torvalds was using Minix for
-his first operating system experiments to make it work on his PC. But
-then he began to merge parts into a single kernel (for speed), undoing
-the work of Tanenbaum.
+Microkernels are not new. Long time ago, around 1991, there was a
+debate between Linus Torvalds and Andrew Tanenbaum. The first is
+known for Linux - a hobby project at that time. The second, professor
+of computer science in Amsterdam who wrote Minix, a microkernel with a
+UNIX-like approach for students to get experience with modern
+technology. In short, at first Torvalds was using Minix, but then he
+began to merge parts into a single kernel for speed.
 
-That era was also the era of the Open Source boom. Minix wasn't open
-source, so that could be a reason why Linux succeeded and Minix
-remained a niche.
+That era was also the era of the Open Source boom. Linux was open
+source, Minix wasn't, so that could be a reason why Linux succeeded
+and Minix remained a niche.
 
 The world would have been different if Torvalds had continued to use a
 microkernel design, but would a microkernel-Linux have as much users
-as the monolitic Linux has now? We will never know.
+as the monolitic Linux has now? We will never know. What we do is that
+many problems that plague monoliths would not be security issues in a
+microkernel. (link to report).
 
 Even though many people never heard of microkernels, they're being
 used all the time. The Airbus A380 uses some (TODO models) for its
@@ -50,6 +53,13 @@ fly-by-wire system/navigation/etc.
 SeL4 is used inside 1.5 billion smart phones for XXX(baseband chip?).
 
 The Intel processors uses Minix to drive the system management
-component (link). It runs even before it boots Linux or Windows on the main
-processor.
+component (link). It runs before it boots Linux or Windows on the main
+processor. It still runs when that main OS has Blue-screened. :-)
 
+Next time: on ambient authority
+
+
+more reading:
+- https://en.wikipedia.org/wiki/Tanenbaum%E2%80%93Torvalds_debate
+- https://www.cs.vu.nl/%7East/reliable-os/
+- https://softwareengineering.stackexchange.com/questions/140925/why-was-tanenbaum-wrong-in-the-tanenbaum-torvalds-debates
