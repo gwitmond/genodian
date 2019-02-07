@@ -1,0 +1,80 @@
+               On Ambient Authority
+
+This pill discusses the concept of Ambient Authority. We explain what
+it is, what it is good for. And why it could be bad for you.
+
+Ambient: it's in the air around, just ready to be picked.
+
+Authority: The right to use a resource. The police has the right to
+stop you to test your breath for alcohol.
+
+The concept of ambient authority is best explained with an analogy.
+
+Image you're in a supermarket. You have a basket in your left
+hand. You walk around the aisles and pick the products you want with
+your right hand and put those in your basket. At some point you decide
+you have all you need and head for the checkout. You put all the items
+on the conveyor belt. The cashier calculates the total price and you
+pay. Then you take your items and leave.
+
+What authorities are given to you by the supermarket?
+
+1. browse the aisles.
+2. collect products.
+3. take them out. (paying changes ownership)
+
+But there are more:
+
+4. put products at other shelves;
+5. eat the food before paying;
+6. throw them on the ground (destroy items);
+7. topple over a whole shelve (total chaos);
+8. take your gun and shoot random shoppers and employees;
+9. detonate your nuclear bomb and destroy the entire supermarket.
+
+The first three are the expected behaviour. Most people behave like
+that. (Luckily). The other five are unwanted behaviour. But there is
+nothing a shop owner can do to prevent you from doing it. It could
+report you to the police, but that's after the fact. I.e. Too Late.
+
+In computers it's just like that.
+
+Many processes need a subset of the capabilities that an OS
+provides. A game needs keyboard and joystick input, audio and video
+output, and some space on the disk to store progress. An interactive
+game needs network connectivity to connect to the game server.
+
+A text editor needs access to the file you want to edit. It needs
+access to the printer and eventually hand it over to a mail-program to
+send it to someone who needs that document.
+
+You, as owner of the computer need the full nuclear option: delete
+stuff you don't want anymore. It could be old emails, entire
+applications or even to wipe the whole disk and format it and start
+afresh.
+
+In an ambient authority system, every process has all the power to do
+everything, but we expect them to behave. Just like the supermarket.
+
+But there are processes that abuse the ambient authority.
+
+Take crypto-malware, it abuses the rights that your OS provides for
+its own benefits. It searches your file-system for interesting files,
+encrypts these, deletes the original, sends the encypyion key (over
+the network) to the criminals and leaves a message for you suggesting
+to pay for that key. It's extortion. But there is nothing that an
+ambient authority system can do to prevent it.
+
+The above example show that the malware had too much privileges. If it
+did not have the privileges to browse the file system or to encrypt
+and delete files, or to send a key to the criminals, it could not have
+succeeded.
+
+Principle of least authority
+
+The principle of least authority states that each process just gets
+those rights it needs and nothing more.
+
+That's easier said than done.
+
+In the next pill I'll describe capability security
