@@ -16,63 +16,58 @@ components -- imagine you're writing a file and the disk driver
 crashes -- that's all the damage it could do. Just wait for it to
 restart and hopefully it will succeed now.
 
-In a monolith, all parts are combined in one big process. The reason
-to do so is that in a microkernel, it takes some time to switch
-between processes while in a monolith there is no
-switching between a filesystem and a disk driver. A monolith is just a
-bit faster. To further speed things up, components can often reach inside other
+In a monolith, all parts are combined in one big process.  The reason
+to do so is the belief that a monolith is just a bit faster. To
+further speed things up, components can often reach inside other
 components to avoid even more communication overhead.
 
-But this quest for speed comes at a price as robustness suffers. In a
+But this quest for speed comes at a price. Robustness suffers. In a
 monolith, if one component has a bug it can literally mess up
-anything. Sometimes it's benign, other times it could be fatal. It
-could crash the system leading to the famous
+anything. Sometimes it's benign, other times fatal. It crashes the
+system leading to the famous
 [https://en.wikipedia.org/wiki/Blue_Screen_of_Death - Blue Screen of
-Death] (or whatever color your OS chooses). Even worse, a clever
-attacker can abuse such bugs to obtain root privileges.
+Death] (or whatever color your OS chooses). Worse, a clever attacker
+can abuse such bugs to obtain root privileges.
 
 Microkernels alone do not make a computer safe against all things
 bad. In later pills I'll show other security issues and what paradigms
-help solve them. And I'll show that program are adapting to OS'es like
-dogs look like their owners (or the other way around).
+help solve them. And I'll show that program are adapting to OS'es just
+like dogs look like their owners.
 
-Microkernels are not new. Long time ago, around 1991, there was a
-debate between Linus Torvalds and Andrew Tanenbaum. The first is
-known for Linux - a hobby project at that time. The second, professor
-of computer science in Amsterdam who wrote Minix, a microkernel with a
-UNIX-like approach for students to get experience with modern
-technology. In short, at first Torvalds was using Minix, but later he
-began to merge parts into a single kernel for speed. And it shows: 
+Microkernels are not new either. Long time ago, around 1991, Linus Torvalds
+used Minix, a microkernel with a UNIX-like approach for students to
+get experience with modern technology. Later he replaced the Minix
+parts with a monolithic kernel for speed. He traded safety for
+speed. And it shows: A recent
+[https://ts.data61.csiro.au/publications/csiro_full_text/Biggs_LH_18.pdf
+- paper by Simon Biggs] states: "96% of critical Linux exploits would
+not reach critical severity in a microkernel-based system, 57% would
+be reduced to low severity". We will never know if Linux would have
+become a success had Linus used a microkernel architecture. But Linus
+never expected Linux would get big either.
 
-
-The world would have been different if Torvalds had continued to use a
-microkernel design, but would a microkernel-Linux have as much users
-as the monolitic Linux has now? We will never know. What we do know is that
-many problems that plague monoliths would not be security issues in a
-microkernel. See the report [4].
-
-That era was also the era of the Open Source boom. Linux was open
-source, Minix wasn't, so that was perhaps another reason why Linux succeeded
-and Minix remained a niche.
-
-The performance reason to choose monoliths has been debunked. Modern microkernel are 
+The performance reason to choose monoliths has been debunked. While
+some of those old ones were very slow, modern microkernels are pretty
+close in performance to monoliths, often less a few percent
+performance loss, much less than the mitigations against processor
+flaws as Spectre and Meltdown. And for most workloads, the safety that
+microkernels bring should outweigh the raw performance.
 
 Even though many people never heard of microkernels, they're being
-used all the time. The Airbus A380 uses some. [link]
+used all the time. L4 is used inside 1.5 billion smart phones for the
+baseband chip. The Intel processors uses Minix to drive the system
+management component. It runs before it boots Linux or Windows
+on the main processor. It still runs when that main OS has
+Blue-screened. :-)
 
-L4 is used inside 1.5 billion smart phones for XXX(baseband chip?).
-
-The Intel processors uses Minix to drive the system management
-component (link). It runs before it boots Linux or Windows on the main
-processor. It still runs when that main OS has Blue-screened. :-)
+I think it is time to deploy microkernels for the main OS too.
 
 Next pill: on ambient authority
-
 
 more reading:
 1 - https://en.wikipedia.org/wiki/Tanenbaum%E2%80%93Torvalds_debate
 2 - https://www.cs.vu.nl/%7East/reliable-os/
 3 - https://softwareengineering.stackexchange.com/questions/140925/why-was-tanenbaum-wrong-in-the-tanenbaum-torvalds-debates
-4 - https://ts.data61.csiro.au/publications/csiro_full_text/Biggs_LH_18.pdf
 5 - https://www.reddit.com/r/linux/comments/98jrkf/the_jury_is_in_monolithic_os_design_is_flawed/
 6 - https://en.wikipedia.org/wiki/L4_microkernel_family
+7 - https://www.cs.vu.nl/~ast/intel/

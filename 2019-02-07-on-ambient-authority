@@ -1,14 +1,18 @@
                On Ambient Authority
 
-This pill discusses the concept of Ambient Authority. We explain what
-it is, what it is good for. And why it could be bad for you.
+This pill discusses the concept of Ambient Authority.
 
 Ambient: it's in the air around, just ready to be picked.
 
-Authority: The right to use a resource. The police has the right to
-stop you to test your breath for alcohol.
+Authority: The right to use a resource.
 
-The concept of ambient authority is best explained with an analogy.
+This authority could be explicit: "here's the key to my car, be careful
+with it" or implicit: "no need to ask if you want to charge your
+phone, just plug it in". Or it could be literally ambient: "the air we
+breathe".
+
+The concept of ambient authority in computers is best explained with
+an analogy.
 
 Image you're in a supermarket. You have a basket in your left
 hand. You walk around the aisles and pick the products you want with
@@ -23,58 +27,49 @@ What authorities are given to you by the supermarket?
 2. collect products.
 3. take them out. (paying changes ownership)
 
-But there are more:
+But there are more, you can:
 
-4. put products at other shelves;
+4. leave products at different shelves;
 5. eat the food before paying;
 6. throw them on the ground (destroy items);
-7. topple over a whole shelve (total chaos);
-8. take your gun and shoot random shoppers and employees;
+7. throw a whole shelve to the ground;
+8. take your gun and shoot shoppers and employees;
 9. detonate your nuclear bomb and destroy the entire supermarket.
 
-The first three are the expected behaviour. Most people behave like
-that. (Luckily). The other five are unwanted behaviour. But there is
-nothing a shop owner can do to prevent you from doing it. It could
-report you to the police, but that's after the fact. I.e. Too Late.
+The first three are expected behaviour that most people live up
+to. The other six are unwanted behaviour in a supermarkt. But there is
+nothing a shop owner can do to prevent you from doing. The shop owner
+could report you to the police, but that's too late, the damage has
+been done.
 
-In computers it's just like that.
+In computers it's just like that. You can:
 
-Many processes need a subset of the capabilities that an OS
-provides. A game needs keyboard and joystick input, audio and video
-output, and some space on the disk to store progress. An interactive
-game needs network connectivity to connect to the game server.
+1. browse your files
+2. collect them in a zip file
+3. mail these to a friend
 
-A text editor needs access to the file you want to edit. It needs
-access to the printer and eventually hand it over to a mail-program to
-send it to someone who needs that document.
+The other rights also apply to computers, you can:
+4. move files around;
+5. change the files (edit documents, bomb some photos);
+6. delete emails, photos, files;
+7. delete folders;
+8. stop processes (called 'kill' in linux);
+9. reformat the hard disk and destroy everything on it.
 
-You, as owner of the computer need the full nuclear option: delete
-stuff you don't want anymore. It could be old emails, entire
-applications or even to wipe the whole disk and format it and start
-afresh.
+Many processes need a just subset of the capabilities that an OS
+provides. A game needs keyboard and joystick input, audio-video output
+and some space on the disk to store the program and your progress. A
+multiplayer game needs network connectivity to connect to the game
+server.
+
+You, as owner of the computer need the full nuclear option: Wipe the
+whole disk, format it and start afresh with a better OS. :-)
 
 In an ambient authority system, every process has all the power to do
-everything, but we expect them to behave. Just like the supermarket.
+everything, yet we expect them to behave. Most of them do, just like
+people in the supermarket.
 
 But there are processes that abuse the ambient authority.
 
-Take crypto-malware, it abuses the rights that your OS provides for
-its own benefits. It searches your file-system for interesting files,
-encrypts these, deletes the original, sends the encypyion key (over
-the network) to the criminals and leaves a message for you suggesting
-to pay for that key. It's extortion. But there is nothing that an
-ambient authority system can do to prevent it.
-
-The above example show that the malware had too much privileges. If it
-did not have the privileges to browse the file system or to encrypt
-and delete files, or to send a key to the criminals, it could not have
-succeeded.
-
-Principle of least authority
-
-The principle of least authority states that each process just gets
-those rights it needs and nothing more.
-
-That's easier said than done.
-
-In the next pill I'll describe capability security
+In the next pill, I'll describe why ambient authority is not a good
+choice for normal computer users.
