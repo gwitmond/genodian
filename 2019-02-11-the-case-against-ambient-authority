@@ -1,53 +1,67 @@
              The case against Ambient Authority
 
-There are processes that abuse the ambient authority.
+This blog is the third in a series on Genode for not-so-technical
+people. In these blogs I try to answer the question what Genode offers
+on safety and usability that other systems don't. Read the
+[https://genodians.org/guido/2019-02-07-on-ambient-authority - second part here].
+
+In the second part, I described what ambient authority is: It's the
+fact that all the rights that a process needs to do it's job are
+available to any process.
+
+The problem is that all the rights that the proces *doesn't need* are
+there for the picking too.
+
+Take for example the card game 'Solitaire'. It needs
+keyboard and mouse input, display output and a few disk accesses to read
+and store the high scores. That's all it needs for you to play the
+game. It does not need access to your photos, but it can. It does not
+need access to the network, but it can. As user, you have to trust
+that Solitaire does not contain any bugs that deletes your files, but
+it could. As user, you have to trust that Solitaire does not send your
+photos to Facebook without your knowledge. Again, it could.
+
+There are processes that deliberately abuse the ambient authority.
 
 Take crypto-malware, it abuses the rights that your OS provides for
 its own benefits: It searches for interesting files, encrypts these,
-deletes the original, sends the encyption key (over the network) to
-the criminals and leaves a message demanding you to pay for that
+deletes the original. Then it sends the encyption key (over the network) to
+the criminals and it leaves a message demanding you to pay for that
 key. It's extortion, plain and simple. The malware clearly abused the
 authority it has but there is nothing that an ambient authority system
 can do to prevent it.
 
-Even though the right to format a disk requires superuser privileges,
-malware that deletes all your files is equally destructive from a user
-perspective.
+How to use an ambient authority system safely?
 
-
-Root cause
-----------
-
-The root cause of this malware problem is that ambient authority makes
-the end user responsible for the software he runs. When your OS shows
-a popup that mentions "This (...) action could be dangerous, do you
-want to continue", the OS is really saying that it cannot guarantee that
-nothing bad happens. It can't help you here. You are on your own.
-
-Instead, when you press "OK", the OS happily runs
-the program and gives it full access to your files, photos, emails,
-passwords, etc.
-
-In other words: Ambient authority does not protect the end user
-against malicious software.
-
-I take it you are familiar with the advice: "Don't click on links in
-emails", "Don't open attachments in emails", "Don't install software
-from shady places (trust our app-store)." These messages are signs
-that your OS cannot protect you against malware.
-
-The user is left in the dark too:
+I take it you are familiar with the advice: _"Don't click on links in emails"_,
+_"Don't open attachments in emails"_,
+_"Don't install software from shady places (trust our app-store)."_? Let's see how that's going to help.
 
 Imagine, a clerk at city hall receives an email. It looks like a
 request for a building permit. The attachment is called
 'building-plans.doc'. How is the clerk going to know that it's really
-a building plan and not some malware. After checking it is not a
-.doc.exe file with the .exe hidden by Microsoft, the clerk needs to
-open the file and carfully review the macros to see what they do.
+a building plan and not some malware. Once the clerk opens the
+document and runs the macros, it could do anything to the city hall
+network.
 
-To safely use the computer, the clerk needs to have good code auditing
-skills. So does the doctor's assistent, school teacher, car mechanic,
-politician, etc. It seems we (IT-people) are letting our users down.
+What's the clerk going to do? The advice not to open attachements is
+useless, the job to open building permit requests that arrive in the mail.
 
+To make sure the macro's are benign, the clerk needs to carefully
+review them to see that they do no harm before opening the document.
 
-In the next pill I'll describe sandboxing
+*To safely use the computer, the clerk must have good software auditing skills.*
+
+So does the doctor's assistent, school teacher, car mechanic,
+politician, etc. It seems we (IT-people) are letting our users down. 
+
+The root cause of the malware problem is that *ambient authority makes end users responsible* for the software they run.
+
+When your OS shows a popup that mentions
+_"This action could be dangerous, do you want to continue"_,
+the OS is really saying that it cannot guarantee that nothing bad
+happens. It can't help you here. You are on your own.
+
+Genode does not use ambient authority, it uses explicit authorization.
+
+In the next blog I'll describe how that's done.

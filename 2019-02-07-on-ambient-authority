@@ -1,13 +1,18 @@
                On Ambient Authority
 
-This pill discusses the concept of Ambient Authority.
+This blog is the second in a series on Genode for not-so-technical
+people. In the blogs I try to answer the question what Genode offers
+on safety and usability that other systems don't. Read the
+[https://genodians.org/guido/2019-01-28-on-microkernels-vs-monoliths - first part here].
 
-Ambient: it's in the air around, just ready to be picked.
+This blog discusses the concept of Ambient Authority.
 
-Authority: The right to use a resource.
+:Ambient: it's in the air around, just ready to be picked.
+
+:Authority: The right to use a resource.
 
 This authority could be explicit: "here's the key to my car, be careful
-with it" or implicit: "no need to ask if you want to charge your
+with it," or implicit: "no need to ask if you want to charge your
 phone, just plug it in". Or it could be literally ambient: "the air we
 breathe".
 
@@ -23,53 +28,56 @@ pay. Then you take your items and leave.
 
 What authorities are given to you by the supermarket?
 
-1. browse the aisles.
-2. collect products.
-3. take them out. (paying changes ownership)
+* browse the aisles.
+* collect products.
+* take them out. (paying changes ownership)
 
 But there are more, you can:
 
-4. leave products at different shelves;
-5. eat the food before paying;
-6. throw them on the ground (destroy items);
-7. throw a whole shelve to the ground;
-8. take your gun and shoot shoppers and employees;
-9. detonate your nuclear bomb and destroy the entire supermarket.
+* leave products at different shelves;
+* eat the food before paying;
+* throw them on the ground (destroy items);
+* throw a whole shelve to the ground;
+* take your gun and shoot shoppers and employees;
+* detonate your nuclear bomb and destroy the entire supermarket.
 
 The first three are expected behaviour that most people live up
-to. The other six are unwanted behaviour in a supermarkt. But there is
-nothing a shop owner can do to prevent you from doing. The shop owner
-could report you to the police, but that's too late, the damage has
-been done.
+to. The other six are unwanted behaviour in a supermarkt. You have to
+option to misbehave, there is nothing a shop owner can do to prevent
+you from doing so. The shop owner could report you to the police, but
+that's too late, the damage has been done.
 
 In computers it's just like that. You can:
 
-1. browse your files
-2. collect them in a zip file
-3. mail these to a friend
+* browse your files
+* collect them in a zip file
+* mail these to a friend
 
 The other rights also apply to computers, you can:
-4. move files around;
-5. change the files (edit documents, bomb some photos);
-6. delete emails, photos, files;
-7. delete folders;
-8. stop processes (called 'kill' in linux);
-9. reformat the hard disk and destroy everything on it.
 
-Many processes need a just subset of the capabilities that an OS
-provides. A game needs keyboard and joystick input, audio-video output
-and some space on the disk to store the program and your progress. A
-multiplayer game needs network connectivity to connect to the game
-server.
+* move files around;
+* change the files (edit documents, bomb some photos);
+* delete emails, photos, files;
+* delete folders;
+* stop processes (called 'kill' in linux);
+* reformat the hard disk and destroy everything on it.
 
-You, as owner of the computer need the full nuclear option: Wipe the
-whole disk, format it and start afresh with a better OS. :-)
+What's considered inappropriate in a supermarket is actually needed to use a computer.
 
-In an ambient authority system, every process has all the power to do
-everything, yet we expect them to behave. Most of them do, just like
-people in the supermarket.
+The rights I described are just the rights to work with files on disk. There are
+more rights in a computer but these don't translate so easy to a
+supermarket analogy. With the network-rights, you can browse the web,
+copy photos via bluetooth from your phone to your desktop computer or
+play a network game with strangers.
 
-But there are processes that abuse the ambient authority.
+In an ambient authority system each process can access these rights
+when it needs to. Many processes need a just subset of the
+capabilities that an OS provides. A game needs keyboard and joystick
+input, audio-video output and some space on the disk to store the
+program and your progress. A multiplayer game needs network
+connectivity as well to connect to the game server.
 
-In the next pill, I'll describe why ambient authority is not a good
-choice for normal computer users.
+Without those rights available, the software would not work.
+
+In the next blog, I'll describe why ambient authority is not a good
+architecture for normal computer users.

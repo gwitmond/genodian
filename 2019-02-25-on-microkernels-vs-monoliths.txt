@@ -1,0 +1,111 @@
+                 On Microkernels versus Monoliths
+
+I like the Genode platform, it offers me a system that is much safer
+against all those bad things that threaten current systems. Computer
+viruses that cripple Mac, Windows and Linux are mostly
+eliminated. These become at most an annoyance, if they have any
+success at all. Also, the regulary patching to close security holes
+can become a faint memory. Here endeth the advertisement.
+
+Right now, the Genode system is ready for system developers. End
+users -- people who are not programmers -- who want to replace their
+desktop with a Genode system have to wait a bit longer (for the
+programmers to finish). This blog is for enthousiasts who want to know
+more about Genode and perhaps experiment with it.
+
+The Genode documentation describes the system from a technical point
+of view. In this series of posts, I'll describe the architecture of
+Genode from the perpective of the end user. What can Genode do that
+the common systems can't do. Or, in other words, why is Genode so much
+safer to use? And how does that make the life of an end user easier?
+Yes, safety and easy to use can be had together.
+
+This blog, I focus on the difference between monoliths and
+microkernels. In later blogs I'll address other architecural choices
+and how they make life better for the end user.
+
+But first, some technical background: an operating system consists of
+many components. There are components for literally every part of the
+system: Disk drivers, audio input, audio output, screen handling,
+networking. Close to one hundred components are needed to make the
+thing work. Each of them needs some software to make it work.
+
+The difference between a microkernel and a monolith is that in a
+microkernel each component runs as a separate process, independent
+from the others. The (very small) kernel just provides some memory and
+communications so these components can do their job. Yet, if one
+component has a bug and crashes it certainly hinders other components --
+imagine you're writing a file and the disk driver crashes -- but
+that's all the damage it could do. Just wait for it to restart and
+hopefully it will succeed now.
+
+In a monolith, all parts are combined in one big process. The reason
+to do so is the belief that a monolith is faster. To further speed
+things up, components can often reach inside other components to avoid
+communication overhead.
+
+But this need for speed comes at a price: Robustness suffer. Imagine
+100 components, all sharing a single kernel process and all running
+with full supervisor rights. Each with a small number of bugs, each of
+them capable of changing any data structure of any component. It's
+recipe for disaster.
+
+In a monolith, if one component has a bug it can literally mess up
+anything. Sometimes it's benign, other times fatal. If it crashes, the
+system can't do anything but show the famous Blue Screen of
+Death. Worse, a clever attacker can abuse such bugs to gain access to
+components he should not have access to at all.
+
+Many components don't even need to run in the same process. An audio
+driver has no need to share a process with a disk driver. The music
+player program connects these two when the user wants to play music.
+
+Microkernels alone do not make a computer safe against all things
+bad. In later blogs I'll show other security issues and what paradigms
+help solve them. And I'll show that program are adapting to OS'es just
+like dogs look like their owners.
+
+Microkernels are not new. Long time ago, around 1991, Linus
+Torvalds used Minix, a microkernel with a UNIX-like approach for
+students to get experience with modern technology. Later he replaced
+the Minix parts with a monolithic kernel for speed. He traded safety
+for speed. And it shows: A recent
+[https://ts.data61.csiro.au/publications/csiro_full_text/Biggs_LH_18.pdf - paper by Simon Biggs]
+states: "96% of critical Linux exploits would not reach critical
+severity in a microkernel-based system, 57% would be reduced to low
+severity".
+
+We will never know if a slower but safer Linux would have become the
+same success had Linus used a microkernel architecture instead of the
+monolith it is today. But Linus never expected Linux would get big
+either, after all, it was just a hobby project at the start. :-)
+
+The performance reason to choose monoliths has been debunked. While
+some of those old ones were very slow, modern microkernels are pretty
+close in performance to monoliths, often less a few percent
+performance loss. And for most workloads, the safety that
+microkernels bring should outweigh the raw performance.
+
+And microkernel systems are everywhere even though many people never
+heard of them. L4 is used inside 1.5 billion smart phones for the
+baseband chip. Intel processors uses Minix to drive the system
+management component, it runs before it boots Linux or Windows on the
+main processor. It still runs when the main OS has Blue-screened. :-)
+
+I think it is time to deploy microkernels for the main OS too.
+
+Next blog: on ambient authority
+
+More reading:
+
+# https://en.wikipedia.org/wiki/Tanenbaum%E2%80%93Torvalds_debate
+
+# https://www.cs.vu.nl/%7East/reliable-os/
+
+# https://softwareengineering.stackexchange.com/questions/140925/why-was-tanenbaum-wrong-in-the-tanenbaum-torvalds-debates
+
+# https://www.reddit.com/r/linux/comments/98jrkf/the_jury_is_in_monolithic_os_design_is_flawed/
+
+# https://en.wikipedia.org/wiki/L4_microkernel_family
+
+# https://www.cs.vu.nl/~ast/intel/

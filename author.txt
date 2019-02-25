@@ -1,11 +1,11 @@
-For a long time, I've been interested in computer security and
-operating system architectures. I think that the POSIX-model has been
-past its expiry date. It was good for professors and students at
-universities in California but I think it is unsuitable for an
-end-user anywhere else.
+For a long time, Guido has been interested in operating system
+architectures.
 
-With Genode there is an architecture that promises a solid foundation
-to build an operating system that solves many common problems such as
-malware and crypto-extortion and could be simple to use for 'normal people'.
+He holds the POSIX-model responsible for many of the problems in both
+usability and security. He thinks that while it was good for
+professors and students at universities in California in the 1970-ies,
+it is unsuitable for normal people on the planet right now.
 
-Contact: guido @witmond.nl
+*Contact* guido @witmond.nl
+
+*Code* github.com/witmond
