@@ -98,14 +98,14 @@ Next blog: on ambient authority
 
 More reading:
 
-# https://en.wikipedia.org/wiki/Tanenbaum%E2%80%93Torvalds_debate
+# [https://en.wikipedia.org/wiki/Tanenbaum%E2%80%93Torvalds_debate]
 
-# https://www.cs.vu.nl/%7East/reliable-os/
+# [https://www.cs.vu.nl/%7East/reliable-os/]
 
-# https://softwareengineering.stackexchange.com/questions/140925/why-was-tanenbaum-wrong-in-the-tanenbaum-torvalds-debates
+# [https://softwareengineering.stackexchange.com/questions/140925/why-was-tanenbaum-wrong-in-the-tanenbaum-torvalds-debates]
 
-# https://www.reddit.com/r/linux/comments/98jrkf/the_jury_is_in_monolithic_os_design_is_flawed/
+# [https://www.reddit.com/r/linux/comments/98jrkf/the_jury_is_in_monolithic_os_design_is_flawed/]
 
-# https://en.wikipedia.org/wiki/L4_microkernel_family
+# [https://en.wikipedia.org/wiki/L4_microkernel_family]
 
-# https://www.cs.vu.nl/~ast/intel/
+# [https://www.cs.vu.nl/~ast/intel/]
