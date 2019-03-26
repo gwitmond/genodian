@@ -94,7 +94,7 @@ main processor. It still runs when the main OS has Blue-screened. :-)
 
 I think it is time to deploy microkernels for the main OS too.
 
-Next blog: on ambient authority
+Next blog: [https://genodians.org/guido/2019-03-26-on-ambient-authority - on ambient authority]
 
 More reading:
 

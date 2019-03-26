@@ -3,7 +3,7 @@
 This blog is the second in a series on Genode for not-so-technical
 people. In the blogs I try to answer the question what Genode offers
 on safety and usability that other systems don't. Read the
-[https://genodians.org/guido/2019-01-28-on-microkernels-vs-monoliths - first part here].
+[https://genodians.org/guido/2019-02-28-on-microkernels-vs-monoliths - first part here].
 
 This blog discusses the concept of Ambient Authority.
 
