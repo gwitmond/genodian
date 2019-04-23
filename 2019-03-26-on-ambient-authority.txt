@@ -79,5 +79,4 @@ connectivity as well to connect to the game server.
 
 Without those rights available, the software would not work.
 
-In the next blog, I'll describe why ambient authority is not a good
-architecture for normal computer users.
+In the next blog, I'll describe why ambient authority is [https://genodians.org/guido/2019-04-23-the-case-against-ambient-authority - not a good architecture for normal computer users].

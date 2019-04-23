@@ -3,7 +3,7 @@
 This blog is the third in a series on Genode for not-so-technical
 people. In these blogs I try to answer the question what Genode offers
 on safety and usability that other systems don't. Read the
-[https://genodians.org/guido/2019-02-07-on-ambient-authority - second part here].
+[https://genodians.org/guido/2019-03-26-on-ambient-authority - second part here].
 
 In the second part, I described what ambient authority is: It's the
 fact that all the rights that a process needs to do it's job are
